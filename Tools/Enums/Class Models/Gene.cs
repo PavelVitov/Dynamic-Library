@@ -8,11 +8,11 @@ namespace Tools.Enums.Class_Models
 {
     public enum Gene
     {
-        None,
-        Gaming,
-        Gambling,
-        Ethical,
-        Friendly,
-        Charecters
+        None = 1,
+        Gaming = 2,
+        Gambling = 3,
+        Ethical = 4,
+        Friendly = 5,
+        Charecter = 6
     }
 }
