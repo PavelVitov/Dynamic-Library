@@ -14,12 +14,11 @@ namespace Tools.Models.Class_Models
             CreateDate = DateTime.Now;   
         }
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime DateEnded { get; set; }
-        public List<int> ChoiceIds { get; set; }
         public List<Choice> Choices { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }

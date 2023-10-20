@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Data_Layer.Configurations;
+using Data_Layer.EntityConfigurations;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
@@ -21,7 +23,10 @@ namespace Data_Layer.DataBase
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(LibraryDbContext).Assembly);
+            modelBuilder.ApplyConfiguration(new ChoiceConfiguration());
+            modelBuilder.ApplyConfiguration(new PollConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new AdminConfiguration()); 
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Data_Layer.EntityConfigurations
 
             builder.HasMany(p => p.Choices)
                 .WithOne(c => c.Poll)
-                .HasForeignKey(c => c.PollId); 
+                .HasForeignKey(c => c.Id); 
 
 
         }
