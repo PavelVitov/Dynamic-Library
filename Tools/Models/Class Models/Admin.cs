@@ -14,7 +14,7 @@ namespace Tools.Models.Class_Models
         {
             
         }
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public AdminLevel Level { get; set; }
         public bool IsDisabled { get; set; }
     }

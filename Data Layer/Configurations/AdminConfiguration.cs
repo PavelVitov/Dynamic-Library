@@ -11,8 +11,6 @@ namespace Data_Layer.EntityConfigurations
             
             builder.ToTable("Admins");
 
-            builder.HasKey(a => a.Id);
-
             builder.Property(a => a.Level)
                 .IsRequired();
 

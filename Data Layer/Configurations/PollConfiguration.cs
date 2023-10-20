@@ -21,10 +21,7 @@ namespace Data_Layer.EntityConfigurations
 
             builder.Property(p => p.CreateDate)
                 .IsRequired();
-
-            builder.Property(p => p.DateEnded)
-                .IsRequired();
-
+      
             builder.Property(p => p.IsPrivate)
                 .IsRequired();
 

@@ -13,13 +13,11 @@ namespace Tools.Models.Class_Models
         {
             CreatedOn = DateTime.Now;
         }
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public List<int> PollIds { get; set; }
         public List<Poll> Polls { get; set; }
-        public List<int> ActivePollIds { get; set; }
         public List<Poll> ActivePolls { get; set; }
         public DateTime CreatedOn { get; set; }
         public bool IsDisabled { get; set; }
