@@ -1,3 +1,12 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Data_Layer.DataBase; // Import your DbContext namespace
+using System;
+
 namespace Dynamic_Library
 {
     public class Program
@@ -9,13 +18,26 @@ namespace Dynamic_Library
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            // Add database context configuration.
+            builder.Services.AddDbContext<LibraryDbContext>(options =>
+            {
+                try
+                {
+                    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+                }
+                catch (Exception ex)
+                {
+                    // Log the inner exception to diagnose the issue.
+                    Console.WriteLine("An error occurred while configuring the database context:");
+                    Console.WriteLine(ex.InnerException?.Message);
+                }
+            });
+
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -23,7 +45,6 @@ namespace Dynamic_Library
             app.UseStaticFiles();
 
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.MapControllerRoute(

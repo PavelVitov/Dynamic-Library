@@ -4,12 +4,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamic-Library", "Dynamic-Library\Dynamic-Library.csproj", "{2CAF9F92-B83C-4D9D-8864-9F64EC8CEC46}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5DC75BEA-D4C6-4B87-9BEB-BFD08AC38E05} = {5DC75BEA-D4C6-4B87-9BEB-BFD08AC38E05}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{647A3267-FB4D-43F5-90CA-9B775FFAF61F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Layer", "Data Layer\Data Layer.csproj", "{B9FB129A-D3FB-44DA-ACE6-1DDFF915AA65}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business Layer", "Business Layer\Business Layer.csproj", "{5DC75BEA-D4C6-4B87-9BEB-BFD08AC38E05}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B9FB129A-D3FB-44DA-ACE6-1DDFF915AA65} = {B9FB129A-D3FB-44DA-ACE6-1DDFF915AA65}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
