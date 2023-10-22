@@ -1,19 +1,12 @@
 ﻿using Data_Layer.Configurations;
-using Data_Layer.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tools.Models.Class_Models;
 
 namespace Data_Layer.DataBase
 {
     public class LibraryDbContext : DbContext
     {
-        public LibraryDbContext(DbContextOptions<LibraryDbContext> options) 
+        public LibraryDbContext(DbContextOptions<LibraryDbContext> options)
             : base(options) { }
 
         public DbSet<Choice> Choices { get; set; }
@@ -23,10 +16,11 @@ namespace Data_Layer.DataBase
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ChoiceConfiguration());
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.ApplyConfiguration(new PollConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
-            modelBuilder.ApplyConfiguration(new AdminConfiguration()); 
         }
+
     }
 }

@@ -17,8 +17,10 @@ namespace Tools.Models.Class_Models
         public string Username { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public List<int> PollsId { get; set; }
         public List<Poll> Polls { get; set; }
-        public List<Poll> ActivePolls { get; set; }
+        public List<int> ActivePollsId { get; set; }
+        public List<AcitvePoll> ActivePolls { get; set; }
         public DateTime CreatedOn { get; set; }
         public bool IsDisabled { get; set; }
        
